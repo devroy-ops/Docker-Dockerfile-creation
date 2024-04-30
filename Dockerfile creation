@@ -1,0 +1,46 @@
+***************Docker image comands************************
+
+
+step-1 docker commit devashish updateimage
+step-2 docker images
+step-3 docker run -it --name devashishroy updateimage /bin/bash
+step-4 exit
+step-5 cd /tmp/
+step-6 ls
+step-7 Vi Dockerfile
+
+FROM ubuntu
+RUN echo "Test echo page" > /tmp/testfile
+
+Step-8 docker build -t test .
+step-9  docker run -it --name testcontainer test /bin/bash
+step-10 ls
+step-11 cd /tmp/
+step-12 ls
+step-13 cat testfile
+
+
+Step-1 Vi Dockerfile
+
+FROM ubuntu
+WORKDIR /tmp
+RUN echo "diff test commands" > /tmp/testfile
+ENV myname devshishroy
+COPY testfile /tmp
+ADD test.tar.gz /tmp
+
+step-2 touch testfile
+step-3 touch test
+step-4 tar -cvf test.tar test
+step-5 ls
+step-6  gzip test.tar
+step-7 ls
+step-8 rm -rf test
+step-9  docker build -t newimage .
+step-10 docker images
+step-11 docker run -t --name newcontainer newimage
+step-12 ls
+step-13 cat testfile
+step-14 echo $myname
+step-15
+
